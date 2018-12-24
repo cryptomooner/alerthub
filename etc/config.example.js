@@ -3,7 +3,7 @@ module.exports = {
   notifications: {
     telegram: {
       enabled: true,
-      accessToken: 'XXX',
+      accessToken: 'YOUR_TOKEN',
       chatId: 'XXX',
     },
     pushbullet: {
