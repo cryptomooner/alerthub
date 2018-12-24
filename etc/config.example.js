@@ -1,6 +1,11 @@
 module.exports = {
   interval: 60000, // Feed check interval, in miliseconds
   notifications: {
+    telegram: {
+      enabled: true,
+      accessToken: 'XXX',
+      chatId: 'XXX',
+    },
     pushbullet: {
       enabled: false,
       accessToken: 'XXX',

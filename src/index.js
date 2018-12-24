@@ -7,6 +7,7 @@ const http = require('http');
 const config = require('../etc/config');
 const alertHubUtils = require('./utils/alertHub');
 const pushNotificationUtils = require('./utils/pushNotification');
+const telegramNotification = require('./utils/telegramNotification');
 const emailUtils = require('./utils/email');
 const rssUtils = require('./utils/rss');
 
@@ -51,6 +52,7 @@ config.extras.forEach((feed) => {
   refresh: 2000,
 }); */
 
+
 // First, the notification part to alert the user
 feeder.on('new-item', async (item) => {
   // console.log(item);
@@ -65,7 +67,12 @@ feeder.on('new-item', async (item) => {
 
     const feedData = alertHubUtils.parseFeedData(item);
 
-    // First, try to send the push notification
+    // try to send the telegram notification
+    if (config.notifications.telegram.enabled === true) {
+      await telegramNotification.sendTelegramNotification(feedData);
+    }
+
+    // try to send the push notification
     if (config.notifications.pushbullet.enabled === true) {
       await pushNotificationUtils.sendPushNotification(config, feedData);
     }
