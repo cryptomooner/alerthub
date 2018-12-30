@@ -1,16 +1,10 @@
-const Telegram = require('telegram-node-bot')
-const config = require('../../etc/config');
+const https = require('https');
 
-async function sendTelegramNotification(feedData) {
-	const tg = new Telegram.Telegram(config.notifications.telegram.accessToken, {
-	    workers: 1,
-	    webAdmin: {
-		port: 1234,
-		host: 'localhost'
-	    }
-	});
-	tg.onMaster(() => {
-	    tg.api.sendMessage(config.notifications.telegram.chatId, feedData.title);
+function sendTelegramNotification(feedData) {
+	let url = 'https://alert.eosdetroit.io?alert=' + encodeURIComponent(feedData.title + " " + feedData.link);
+	https.get(url, (resp) => {
+	}).on("error", (err) => {
+  		console.log("Error: " + err.message);
 	});
 }
 
