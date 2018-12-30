@@ -19,8 +19,7 @@
     "pushbullet": "^2.3.0",
     "rss-braider": "^1.2.4",
     "rss-feed-emitter": "^2.0.1",
-    "striptags": "^3.1.1",
-    "telegram-node-bot": "^4.0.5"
+    "striptags": "^3.1.1"
   },
   "devDependencies": {
     "eslint": "^5.9.0",
