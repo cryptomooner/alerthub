@@ -45,9 +45,7 @@ module.exports = {
       'GolosChain/cyberway',
       'UOSnetwork/uos'
     ],
-    tags: [
-	'eosio/eos'
-    ],
+    tags: [],
     commits: [
       'eosnewyork/eoslists'
     ],
@@ -56,3 +54,4 @@ module.exports = {
     // direct rss links from other sources if you want to watch with this tool
   ],
 };
+
